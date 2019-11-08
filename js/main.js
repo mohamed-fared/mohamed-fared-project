@@ -33,7 +33,7 @@ $(document).ready(function() {
 		  else {
 		 	for ( var i = 0 ; i < redFlagPassengers.length ; i++ ){
 		 		if (passPortNumber === redFlagPassengers[i].passPortNumber && last === redFlagPassengers[i].last ) {
-		 			 alert("This person Wanted ");
+		 			 alert("Persona non grata");
 		 			 return searchRedFalg(passPortNumber,last);
 		 		}
 		 	}
@@ -58,6 +58,11 @@ $(document).ready(function() {
 		$("#search-last").val('');
 	})
 
+	$("body").on("click","#btn-delete-display-info", function(){
+
+		$("#display").html('');
+	})
+
 	function displaySaveInfo(){
 		var info = data.passengers[data.passengers.length - 1]
 		var html = '';
@@ -68,22 +73,26 @@ $(document).ready(function() {
 				</div>
                 <div class="row" id="row1-display-info">
                     <div class="col">
-                    <label>FullName : </label>
-                        <h3>${info.first+" "+info.middle+" "+info.last}</h3>
+                    <label>Fullname : </label>
+                        <h4>${info.first+" "+info.middle+" "+info.last}</h4>
                     </div>
                     <div class="col">
-                    <label>country : </label>
+                    <label>Passport number: </label>
+                        <h4>${info.passPortNumber}</h4>
+                    </div>
+                    <div class="col">
+                    <label>Country : </label>
                         <h3>${info.country}</h3>
                     </div>
                 </div>
                 <div class="row" id="row2-display-info">
 	                <div class="col">
-	                    <label>gender : </label>
-	                        <h3>${info.gender}</h3>
+	                    <label>Gender : </label>
+	                        <h4>${info.gender}</h4>
 	                    </div> 
 	                    <div class="col">
-	                    <label>birthDay : </label>
-	                        <h3>${info.birthDay}</h3>
+	                    <label>Birthday : </label>
+	                        <h4>${info.birthDay}</h4>
 	                    </div>
 	                </div> 
 	                </div>             
@@ -114,19 +123,19 @@ $(document).ready(function() {
                 <div class="row">
                     <div class="col">
                     <label>FullName : </label>
-                        <h3>${info.first+" "+info.middle+" "+info.last}</h3>
+                        <h4>${info.first+" "+info.middle+" "+info.last}</h4>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                     <label>country : </label>
-                        <h3>${info.country}</h3>
+                        <h4>${info.country}</h4>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                     <label>gender : </label>
-                        <h3>${info.gender}</h3>
+                        <h4>${info.gender}</h4>
                     </div>
                 </div>
             </div>`;
@@ -158,8 +167,11 @@ function searchRedFalg(passPortNumber,last){
 			var info = redFlagPassengers[person]
 	  		console.log(info);
 	  		var infoDisplay = 
-			` <div class="container mx-5"id="redFlag">
-                <div class="row" id="row1-red-info">
+	  		` <div class="container mx-5" id="redFlag">
+				<div class="btn-remove">
+					<button id="btn-delete-display-info">&cross;</button>
+				</div>
+                <div class="row" id="row1-redflag-info">
                     <div class="col">
                     <label>FullName : </label>
                         <h3>${info.first+" "+info.middle+" "+info.last}</h3>
@@ -169,16 +181,39 @@ function searchRedFalg(passPortNumber,last){
                         <h3>${info.country}</h3>
                     </div>
                 </div>
-                <div class="row" id="id="row2-red-info"">
-                <div class="col">
-                    <label>gender : </label>
-                        <h3>${info.gender}</h3>
-                    </div> 
-                </div>
-                <div class="row">
+                <div class="row" id="row2-redflag-info">
+	                <div class="col">
+	                    <label>gender : </label>
+	                        <h3>${info.gender}</h3>
+	                    </div> 
+	                    <div class="col">
+	                    <label>birthDay : </label>
+	                        <h3>${info.birthDay}</h3>
+	                    </div>
+	                </div> 
+	                </div>             
+	            </div>`;
+			// ` <div class="container mx-5"id="redFlag">
+   //              <div class="row" id="row1-red-info">
+   //                  <div class="col">
+   //                  <label>FullName : </label>
+   //                      <h3>${info.first+" "+info.middle+" "+info.last}</h3>
+   //                  </div>
+   //                  <div class="col">
+   //                  <label>country : </label>
+   //                      <h3>${info.country}</h3>
+   //                  </div>
+   //              </div>
+   //              <div class="row" id="id="row2-red-info"">
+   //              <div class="col">
+   //                  <label>gender : </label>
+   //                      <h3>${info.gender}</h3>
+   //                  </div> 
+   //              </div>
+   //              <div class="row">
                     
-                </div>
-            </div>`;
+   //              </div>
+   //          </div>`;
 	  	$("#display").html(infoDisplay)
 
 		}

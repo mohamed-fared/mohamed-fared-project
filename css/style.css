@@ -1,19 +1,51 @@
 
 body{
 	background-color: lightgray ;
+	
 }
+
+img {
+	 
+	transform: translateX(610%);
+	width: 100px;
+	padding: 2px;
+}
+
+.container .mx5 h1 {
+  text-align: center;
+}
+
+#btn-save-info{
+	text-align: center;
+	margin: 5px;
+}
+.btn-remove {
+	text-align:  right;
+}
+
+#btn-delete-display-info {
+
+	width: 30px;
+    height: 30px;
+    border-radius: 40%;
+    margin: 5px;
+}
+
 
 #displayInfo h3{
 	width: 100px
 }
 #redFlag{
 	background-color: coral; 
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 45%;
+	
 }
-/*.container .mx-5{
 
-	background-color: coral; 
 
-}*/
 
 #displayInfo{
 
@@ -27,7 +59,6 @@ body{
 
 #create-passenger-form {
 
-	border: 2px solid black ;
     border: 2px solid black;
     width: 65%;
     display: block;
@@ -83,5 +114,17 @@ body{
 	display: flex;
     justify-content: space-evenly;
 }
+#row1-redflag-info {
+	display: flex;
+    justify-content: space-evenly;
+}
+#row2-redflag-info {
+	display: flex;
+    justify-content: space-evenly;
+}
 
+#display .col{
+	display: flex;
+    align-items: center;
+}
 

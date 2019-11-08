@@ -48,10 +48,10 @@ var redFlagPassengers = [ {
 	,
 	{
 	first: "ahmed",
-	middle: "mohamed",
+	middle: "edawi",
 	last : "wheida",
-	country: "libya",
-	passPortNumber : "12345",
+	country:"libya",
+	passPortNumber : "1111",
 	gender:"male",
 	}
 
@@ -73,7 +73,9 @@ var addPassenger = function(passenger){
 		&& passenger.birthDay === elemnt.birthDay 
 	});
 		if (index >=0) {
+			this.passengers[index].numberOfEntry ++
 			return alert("this person already exist")
+
 		}else{
 		
 		this.passengers.push(passenger);
