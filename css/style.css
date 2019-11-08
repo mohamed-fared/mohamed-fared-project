@@ -3,6 +3,9 @@ body{
 	background-color: lightgray ;
 }
 
+#displayInfo h3{
+	width: 100px
+}
 #redFlag{
 	background-color: coral; 
 }
@@ -13,31 +16,43 @@ body{
 }*/
 
 #displayInfo{
-	background-color: #DAF7A6; 
 
+    background-color: #DAF7A6;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 45%;
 }
 
 #create-passenger-form {
+
 	border: 2px solid black ;
-	/*display: flex;
-	text-align: center ;
-	width: 300px
-	margin-left: 50px;*/
+    border: 2px solid black;
+    width: 65%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .container .mx5{
-	text-align: center ;
+	/*text-align: center ;*/
 
 }
-#row1-reate-passenger-form{
+
+
+#row1-create-passenger-form{
 	display: flex;
-	text-align: center ;
-	margin-top: 10px
+    text-align: center;
+    margin-top: 10px;
+    justify-content: space-evenly;
 }
-#row2-reate-passenger-form{
+#row2-create-passenger-form{
 	display: flex;
-	text-align: center ;
-	margin-top: 10px
+    text-align: center;
+    margin-top: 10px;
+    justify-content: space-evenly;
+
 }
 #btn-save-passangerData{
 	width: 70px;
@@ -55,8 +70,18 @@ body{
 }
 #row-search-passenger {
 	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#row1-display-info {
+	display: flex;
+    justify-content: space-evenly;
 }
 
 
+#row2-display-info {
+	display: flex;
+    justify-content: space-evenly;
+}
 
 

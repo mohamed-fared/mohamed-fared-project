@@ -75,11 +75,7 @@ var addPassenger = function(passenger){
 		if (index >=0) {
 			return alert("this person already exist")
 		}else{
-			
-		var index = this.passengers.findIndex(function(elemnt) {
-		return passenger.passPortNumber === elemnt.passPortNumber && passenger.last  === elemnt.last 
-		&& passenger.birthDay === elemnt.birthDay 
-
+		
 		this.passengers.push(passenger);
 		}
 	}

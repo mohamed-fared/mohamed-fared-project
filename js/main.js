@@ -18,7 +18,6 @@ $(document).ready(function() {
 		var country = $("#country").val();
 		var gender = $("#list-gender-select option:selected").val();
 		var birthDay = $("#Date-Of-Birth").val();
-		console.log(birthDay);
 
 		//console.log(first +" "+middle+" "+last+" "+passPortNumber+" "+country)
 		$("#first-name").val('');
@@ -28,7 +27,6 @@ $(document).ready(function() {
 		$("#country").val('');
 		$("#Date-Of-Birth").val('')
 
-
 		 if ( first === '' || middle === '' || passPortNumber === '' || country === '' || last === '' || birthDay === ""  ) {
 		 	  alert("Plase enter Full Informstion ");
 		 }
@@ -37,7 +35,6 @@ $(document).ready(function() {
 		 		if (passPortNumber === redFlagPassengers[i].passPortNumber && last === redFlagPassengers[i].last ) {
 		 			 alert("This person Wanted ");
 		 			 return searchRedFalg(passPortNumber,last);
-
 		 		}
 		 	}
 		 		var passanger = Passenger(first,middle,last,passPortNumber,country,gender,birthDay)
@@ -66,31 +63,31 @@ $(document).ready(function() {
 		var html = '';
 	  	var infoDisplay = 
 			` <div class="container mx-5" id="displayInfo">
-                <div class="row">
+				<div class="btn-remove">
+					<button id="btn-delete-display-info">&cross;</button>
+				</div>
+                <div class="row" id="row1-display-info">
                     <div class="col">
                     <label>FullName : </label>
                         <h3>${info.first+" "+info.middle+" "+info.last}</h3>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col">
                     <label>country : </label>
                         <h3>${info.country}</h3>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                    <label>gender : </label>
-                        <h3>${info.gender}</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                    <label>birthDay : </label>
-                        <h3>${info.birthDay}</h3>
-                    </div>
-                </div>
-            </div>`;
+                <div class="row" id="row2-display-info">
+	                <div class="col">
+	                    <label>gender : </label>
+	                        <h3>${info.gender}</h3>
+	                    </div> 
+	                    <div class="col">
+	                    <label>birthDay : </label>
+	                        <h3>${info.birthDay}</h3>
+	                    </div>
+	                </div> 
+	                </div>             
+	            </div>`;
         if(info.first === undefined ) {
         	var infoDisplay = 
 			` <div class="container mx-5">
@@ -162,23 +159,24 @@ function searchRedFalg(passPortNumber,last){
 	  		console.log(info);
 	  		var infoDisplay = 
 			` <div class="container mx-5"id="redFlag">
-                <div class="row">
+                <div class="row" id="row1-red-info">
                     <div class="col">
                     <label>FullName : </label>
                         <h3>${info.first+" "+info.middle+" "+info.last}</h3>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col">
                     <label>country : </label>
                         <h3>${info.country}</h3>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
+                <div class="row" id="id="row2-red-info"">
+                <div class="col">
                     <label>gender : </label>
                         <h3>${info.gender}</h3>
-                    </div>
+                    </div> 
+                </div>
+                <div class="row">
+                    
                 </div>
             </div>`;
 	  	$("#display").html(infoDisplay)
