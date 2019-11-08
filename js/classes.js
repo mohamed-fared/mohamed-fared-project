@@ -1,12 +1,16 @@
-var Passenger = function(name,middle,last,passPortNumber,country,gender){
+var Passenger = function(first,middle,last,passPortNumber,country,gender,birthDay){
 	var instence = {};
-	instence.name = name;
+	instence.first = first;
 	instence.middle = middle;
 	instence.last = last;
 	instence.passPortNumber = passPortNumber;
 	instence.gender = gender;
 	instence.timeOfCreation = new Date().toLocaleString();
 	instence.country = country;
+	instence.birthDay = birthDay;
+	instence.status = false ; 
+	instence.numberOfEntry = 0 ;
+	instence.toggleStatus = toggleStatus;
 
 	return instence;
 
@@ -25,21 +29,65 @@ var DataBase = function(passenger) {
 }
 
 var redFlagPassengers = [ {
-	name : "mohaemd",
+	first: "mohaemd",
+	middle: "fared",
 	last : "salah",
-	passPortNumber : "1234"
-	
+	country: "libya",
+	passPortNumber : "1234",
+	gender:"male",
 		}
+	,
+	{
+	first: "omar",
+	middle: "mohamed",
+	last : "bara",
+	country: "libya",
+	passPortNumber : "123456",
+	gender:"male",
+	}
+	,
+	{
+	first: "ahmed",
+	middle: "mohamed",
+	last : "wheida",
+	country: "libya",
+	passPortNumber : "12345",
+	gender:"male",
+	}
 
 	]
 
 var addPassenger = function(passenger){
 
-	this.passengers.push(passenger);
+	var index = redFlagPassengers.findIndex(function(elemnt) {
+		return passenger.passPortNumber === elemnt.passPortNumber 
+		&& passenger.last === elemnt.last  ;
 
+	});
+	if(index >= 0 ) {
+		//alert("this person already exist")
+	}else{
+
+		var index = this.passengers.findIndex(function(elemnt) {
+		return passenger.passPortNumber === elemnt.passPortNumber && passenger.last  === elemnt.last 
+		&& passenger.birthDay === elemnt.birthDay 
+	});
+		if (index >=0) {
+			return alert("this person already exist")
+		}else{
+			
+		var index = this.passengers.findIndex(function(elemnt) {
+		return passenger.passPortNumber === elemnt.passPortNumber && passenger.last  === elemnt.last 
+		&& passenger.birthDay === elemnt.birthDay 
+
+		this.passengers.push(passenger);
+		}
+	}
 }
 
+
 var removePassenger = function(passPortNumber,last){
+
 	var index = this.passengers.findIndex(function(elemnt) {
 		return passPortNumber === elemnt.passPortNumber && last === elemnt.last
 	});
@@ -62,18 +110,23 @@ var getPassenger = function(passPortNumber,last) {
 	}else{
 		return "This Passenger Not Found"
 	}
-	
+
+}
+
+var toggleStatus = function() {
+
+	this.status = ! this.status;
 
 }
 
 
-	// var data = DataBase();
-	// var pass1 = Passenger("name","middle","last","passportNumber","gender")
+	// var data1 = DataBase();
+	//  var pass1 = Passenger("name","middle","last","passportNumber","gender")
 	// var pass2 = Passenger("nfffame","mifffdle","lfffast","pasfffsportNumber","genfffder")
-	// var pass3 = Passenger("moahmed","fared","salah","1234","libya")
-	// data.addPassenger(pass1)
-	// data.addPassenger(pass2)
-	// data.addPassenger(pass3)
+	//  var pass3 = Passenger("moahmed","fared","salah","1234","libya")
+	//  data1.addPassenger(pass1)
+	//  data1.addPassenger(pass2)
+	//  data1.addPassenger(pass3)
 
 
 

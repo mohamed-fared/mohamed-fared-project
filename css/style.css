@@ -2,3 +2,61 @@
 body{
 	background-color: lightgray ;
 }
+
+#redFlag{
+	background-color: coral; 
+}
+/*.container .mx-5{
+
+	background-color: coral; 
+
+}*/
+
+#displayInfo{
+	background-color: #DAF7A6; 
+
+}
+
+#create-passenger-form {
+	border: 2px solid black ;
+	/*display: flex;
+	text-align: center ;
+	width: 300px
+	margin-left: 50px;*/
+}
+
+.container .mx5{
+	text-align: center ;
+
+}
+#row1-reate-passenger-form{
+	display: flex;
+	text-align: center ;
+	margin-top: 10px
+}
+#row2-reate-passenger-form{
+	display: flex;
+	text-align: center ;
+	margin-top: 10px
+}
+#btn-save-passangerData{
+	width: 70px;
+    height: 20px;
+}
+.passenger-form input {
+	width: 150px;
+    border: 1px solid #eee;
+	border-radius: 1px;
+}
+
+#search-passenger-form .col {
+
+	border: 2px solid black
+}
+#row-search-passenger {
+	margin-top: 10px;
+}
+
+
+
+

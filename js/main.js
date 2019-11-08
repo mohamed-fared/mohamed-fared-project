@@ -17,30 +17,39 @@ $(document).ready(function() {
 		var passPortNumber = $("#passPort-number").val();
 		var country = $("#country").val();
 		var gender = $("#list-gender-select option:selected").val();
+		var birthDay = $("#Date-Of-Birth").val();
+		console.log(birthDay);
 
 		//console.log(first +" "+middle+" "+last+" "+passPortNumber+" "+country)
 		$("#first-name").val('');
 		$("#middle-name").val('');
 		$("#last-name").val('');
 		$("#passPort-number").val('');
-		 $("#country").val('');
+		$("#country").val('');
+		$("#Date-Of-Birth").val('')
 
-		 if ( first === '' || middle === '' || passPortNumber === '' || country === '' ) {
+
+		 if ( first === '' || middle === '' || passPortNumber === '' || country === '' || last === '' || birthDay === ""  ) {
 		 	  alert("Plase enter Full Informstion ");
-		 }else{
-
-		var passanger = Passenger(first,middle,last,passPortNumber,country,gender)
-		data.addPassenger(passanger);
-		//passngerss.push(data);
-		  console.log(data);
-		  //console.log(redFlagPassengers[0]);
-		  displaySaveInfo();
-
 		 }
-		
-		  
+		  else {
+		 	for ( var i = 0 ; i < redFlagPassengers.length ; i++ ){
+		 		if (passPortNumber === redFlagPassengers[i].passPortNumber && last === redFlagPassengers[i].last ) {
+		 			 alert("This person Wanted ");
+		 			 return searchRedFalg(passPortNumber,last);
 
-	})
+		 		}
+		 	}
+		 		var passanger = Passenger(first,middle,last,passPortNumber,country,gender,birthDay)
+				data.addPassenger(passanger);
+				//passngerss.push(data);
+		  		console.log(data);
+		  		//console.log(redFlagPassengers[0]);
+		  		displaySaveInfo();
+		 }
+		 
+		
+	 })
 
 	$("body").on("submit","#search-passenger-form",function(e){
 
@@ -50,31 +59,17 @@ $(document).ready(function() {
 		getInfo(passPortNumber,last)
 		$("#search-passPort-nu").val('');
 		$("#search-last").val('');
-
-
-
-
-		
-	
 	})
 
 	function displaySaveInfo(){
-
-		// if (data.passengers.length === 0) {
-
-		// 	alert("please enter the info")
-
-
-		// }
-
 		var info = data.passengers[data.passengers.length - 1]
 		var html = '';
 	  	var infoDisplay = 
-			` <div class="container mx-5">
+			` <div class="container mx-5" id="displayInfo">
                 <div class="row">
                     <div class="col">
                     <label>FullName : </label>
-                        <h3>${info.name+" "+info.middle+" "+info.last}</h3>
+                        <h3>${info.first+" "+info.middle+" "+info.last}</h3>
                     </div>
                 </div>
                 <div class="row">
@@ -89,8 +84,14 @@ $(document).ready(function() {
                         <h3>${info.gender}</h3>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col">
+                    <label>birthDay : </label>
+                        <h3>${info.birthDay}</h3>
+                    </div>
+                </div>
             </div>`;
-        if(info.name === undefined ) {
+        if(info.first === undefined ) {
         	var infoDisplay = 
 			` <div class="container mx-5">
                 <div class="row">
@@ -116,7 +117,7 @@ $(document).ready(function() {
                 <div class="row">
                     <div class="col">
                     <label>FullName : </label>
-                        <h3>${info.name+" "+info.middle+" "+info.last}</h3>
+                        <h3>${info.first+" "+info.middle+" "+info.last}</h3>
                     </div>
                 </div>
                 <div class="row">
@@ -132,7 +133,7 @@ $(document).ready(function() {
                     </div>
                 </div>
             </div>`;
-        if(info.name === undefined ) {
+        if(info.first === undefined ) {
         	var infoDisplay = 
 			` <div class="container mx-5">
                 <div class="row">
@@ -152,10 +153,48 @@ $(document).ready(function() {
 	// 	for (var i )
 	// }	
 
+function searchRedFalg(passPortNumber,last){
+	var html = '';
+	for (var person in redFlagPassengers){
+		if ( passPortNumber === redFlagPassengers[person].passPortNumber && last === redFlagPassengers[person].last )
+		{
+			var info = redFlagPassengers[person]
+	  		console.log(info);
+	  		var infoDisplay = 
+			` <div class="container mx-5"id="redFlag">
+                <div class="row">
+                    <div class="col">
+                    <label>FullName : </label>
+                        <h3>${info.first+" "+info.middle+" "+info.last}</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                    <label>country : </label>
+                        <h3>${info.country}</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                    <label>gender : </label>
+                        <h3>${info.gender}</h3>
+                    </div>
+                </div>
+            </div>`;
+	  	$("#display").html(infoDisplay)
 
-	// The end of the main.js 
+		}
+	}
+	 	
+
+}
+	// ==================The end of the main.js ==================
 
 })
+
+
+
+
 
 
 
