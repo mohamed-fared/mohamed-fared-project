@@ -3,7 +3,6 @@ body{
 	background-color: lightgray ;
 	
 }
-
 img {
 	 
 	transform: translateX(610%);
@@ -31,7 +30,6 @@ img {
     margin: 5px;
 }
 
-
 #displayInfo h3{
 	width: 100px
 }
@@ -44,8 +42,6 @@ img {
     width: 45%;
 	
 }
-
-
 
 #displayInfo{
 
@@ -71,7 +67,6 @@ img {
 
 }
 
-
 #row1-create-passenger-form{
 	display: flex;
     text-align: center;
@@ -95,20 +90,20 @@ img {
 	border-radius: 1px;
 }
 
-#search-passenger-form .col {
-
-	border: 2px solid black
-}
 #row-search-passenger {
-	margin-top: 10px;
-	margin-bottom: 10px;
+
+	border: 2px solid black;
+    width: 49%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
 }
 
 #row1-display-info {
 	display: flex;
     justify-content: space-evenly;
 }
-
 
 #row2-display-info {
 	display: flex;
@@ -128,3 +123,15 @@ img {
     align-items: center;
 }
 
+#row-search {
+
+	display: flex;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: space-evenly;
+
+}
+#row-search input {
+	width: 200px;
+}

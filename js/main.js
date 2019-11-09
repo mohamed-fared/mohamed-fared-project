@@ -3,10 +3,9 @@ $(document).ready(function() {
 
 	var body = $("body");
 	var data = DataBase();
-	//var passngerss = [];
 
-
-
+	// Get the passenger data information when hit the (save) button .
+	
 	$("body").on("submit","#create-passenger-form",function(e){
 
 		e.preventDefault();
@@ -27,25 +26,27 @@ $(document).ready(function() {
 		$("#country").val('');
 		$("#Date-Of-Birth").val('')
 
+		// check if all the passenser data was entered or not .
 		 if ( first === '' || middle === '' || passPortNumber === '' || country === '' || last === '' || birthDay === ""  ) {
-		 	  alert("Plase enter Full Informstion ");
+		 	  alert("Please Enter Full Informtion ");
 		 }
 		  else {
+
+		  	// check if passport nummber and the last name of the person was in the red flag  database 
+		  	// which is not allowed to enter the country .
+
 		 	for ( var i = 0 ; i < redFlagPassengers.length ; i++ ){
 		 		if (passPortNumber === redFlagPassengers[i].passPortNumber && last === redFlagPassengers[i].last ) {
 		 			 alert("Persona non grata");
+		 			 // return the person name for the red flag database.
 		 			 return searchRedFalg(passPortNumber,last);
 		 		}
 		 	}
 		 		var passanger = Passenger(first,middle,last,passPortNumber,country,gender,birthDay)
 				data.addPassenger(passanger);
-				//passngerss.push(data);
 		  		console.log(data);
-		  		//console.log(redFlagPassengers[0]);
 		  		displaySaveInfo();
 		 }
-		 
-		
 	 })
 
 	$("body").on("submit","#search-passenger-form",function(e){
@@ -112,33 +113,41 @@ $(document).ready(function() {
 
 
 	}
-
-
 	function getInfo(passPortNumber,last) {
 		var html = '';
 	 	var info = data.getPassenger(passPortNumber,last);
 	  	console.log(info);
 	  	var infoDisplay = 
-			` <div class="container mx-5">
-                <div class="row">
+   ` <div class="container mx-5" id="displayInfo">
+				<div class="btn-remove">
+					<button id="btn-delete-display-info">&cross;</button>
+				</div>
+                <div class="row" id="row1-display-info">
                     <div class="col">
-                    <label>FullName : </label>
+                    <label>Fullname : </label>
                         <h4>${info.first+" "+info.middle+" "+info.last}</h4>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col">
-                    <label>country : </label>
-                        <h4>${info.country}</h4>
+                    <label>Passport number: </label>
+                        <h4>${info.passPortNumber}</h4>
+                    </div>
+                    <div class="col">
+                    <label>Country : </label>
+                        <h3>${info.country}</h3>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                    <label>gender : </label>
-                        <h4>${info.gender}</h4>
-                    </div>
-                </div>
-            </div>`;
+                <div class="row" id="row2-display-info">
+	                <div class="col">
+	                    <label>Gender : </label>
+	                        <h4>${info.gender}</h4>
+	                    </div> 
+	                    <div class="col">
+	                    <label>Birthday : </label>
+	                        <h4>${info.birthDay}</h4>
+	                    </div>
+	                </div> 
+	                </div>             
+	            </div>`;
         if(info.first === undefined ) {
         	var infoDisplay = 
 			` <div class="container mx-5">
@@ -153,11 +162,6 @@ $(document).ready(function() {
 	  	$("#display").html(infoDisplay)
 
 	}
-
-	// function display(){
-		
-	// 	for (var i )
-	// }	
 
 function searchRedFalg(passPortNumber,last){
 	var html = '';
@@ -193,33 +197,11 @@ function searchRedFalg(passPortNumber,last){
 	                </div> 
 	                </div>             
 	            </div>`;
-			// ` <div class="container mx-5"id="redFlag">
-   //              <div class="row" id="row1-red-info">
-   //                  <div class="col">
-   //                  <label>FullName : </label>
-   //                      <h3>${info.first+" "+info.middle+" "+info.last}</h3>
-   //                  </div>
-   //                  <div class="col">
-   //                  <label>country : </label>
-   //                      <h3>${info.country}</h3>
-   //                  </div>
-   //              </div>
-   //              <div class="row" id="id="row2-red-info"">
-   //              <div class="col">
-   //                  <label>gender : </label>
-   //                      <h3>${info.gender}</h3>
-   //                  </div> 
-   //              </div>
-   //              <div class="row">
-                    
-   //              </div>
-   //          </div>`;
 	  	$("#display").html(infoDisplay)
 
 		}
 	}
 	 	
-
 }
 	// ==================The end of the main.js ==================
 
