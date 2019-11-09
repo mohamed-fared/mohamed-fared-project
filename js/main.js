@@ -98,16 +98,16 @@ $(document).ready(function() {
 	                </div> 
 	                </div>             
 	            </div>`;
-        if(info.first === undefined ) {
-        	var infoDisplay = 
-			` <div class="container mx-5">
-                <div class="row">
-                    <div class="col">
-                        <h3>${"please enter correct information "}</h3>
-                    </div>
-                </div>
-              <div>`
-        }
+        		if(info.first === undefined ) {
+		        	var infoDisplay = 
+					` <div class="container mx-5">
+		                <div class="row">
+		                    <div class="col">
+		                        <h3>${"please enter correct information "}</h3>
+		                    </div>
+		                </div>
+		              <div>`
+		        	}
 
 	  	$("#display").html(infoDisplay)
 
@@ -148,16 +148,16 @@ $(document).ready(function() {
 	                </div> 
 	                </div>             
 	            </div>`;
-        if(info.first === undefined ) {
-        	var infoDisplay = 
-			` <div class="container mx-5">
-                <div class="row">
-                    <div class="col">
-                        <h3>${info}</h3>
-                    </div>
-                </div>
-              <div>`
-        }
+       			 if(info.first === undefined ) {
+		        	var infoDisplay = 
+					` <div class="container mx-5">
+		                <div class="row">
+		                    <div class="col">
+		                        <h3>${info}</h3>
+		                    </div>
+		                </div>
+		              <div>`
+      				  }
 
 	  	$("#display").html(infoDisplay)
 

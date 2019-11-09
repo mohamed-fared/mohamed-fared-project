@@ -106,7 +106,8 @@ var getPassenger = function(passPortNumber,last) {
 	if(index >= 0 ) {
 		 return this.passengers[index];
 	}else{
-		return "This Passenger Not Found"
+		//return "This Passenger Not Found"
+		alert("This Passenger Not Found")
 	}
 
 }
